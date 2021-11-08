@@ -169,35 +169,52 @@ git log --graph --all --oneline
 ## EJERCICIO 9
 
 Creo la rama ‘’bibliografia” y cambio a ella desde ‘’master”.
-
-
-
+```
+git branch bibliografia
+git checkout bibliografia
+```
 
 Cambio el fichero bibliografia.txt para que contenga las siguientes referencias:
-
+```
+cat > bibliografia.txt
+```
+> Scott Chacon and Ben Straub. Pro Git. Apress.
+> Ryan Hodson. Ry's Git Tutorial. Smashwords (2014)
 
 Añado los cambios a la zona de intercambio temporal y creo un commit de los cambios con el mensaje ”Añadida nueva ref. biblio”.
-
-
+```
+Ctrl+D
+git commit -a -m "Añadida nueva referencia bibliográfica."
+```
 
 Cambio a la rama “master” y modifico el fichero .txt previamente importado:
-
-
-
+```
+git checkout main
+cat > bibliografia.txt
+```
+> Chacon, S. and Straub, B. Pro Git. Apress.
+> Loeliger, J. and McCullough, M. Version control with Git. O'Reilly.
 
 Añado los cambios a la zona de intercambio temporal y creo un commit de los cambios con el mensaje ”Añadida nueva ref. biblio”.
+```
+Ctrl+D
+git commit -a -m "Añadida nueva referencia bibliográfica."
+````
+Intento fusionar la rama “master” con “bibliografia”. Se presenta un conflicto, pues ambas ramas designadas igual contienen datos diferentes. Abro el editor de texto para hacer una corrección.
+```
+git merge bibliografia
+git nano bibliografia
+# Hacer los cambios indicados en el fichero
+```
 
+Añado los cambios a la zona de intercambio temporal y hacer un commit con el mensaje: 
 
-
-
-Intento fusionar la rama “master” con “bibliografia”. Se presenta un conflicto, pues ambas ramas designadas igual contienen datos diferentes. Abro el editor de texto para hacer una corrección.   
-
-
-
-Añado los cambios a la zona de intercambio temporal y hacer un commit con el mensaje “Resuelto conflicto de bibliografía.”
-
-
-
+> Resuelto conflicto de bibliografía.
+```
+git commit -a -m "Solucionado conflicto bibliografía."
+```
 Compruebo mediante git log que la fusión ha sido exitosa.
-
+```
+git log --graph --all --oneline
+```
 
